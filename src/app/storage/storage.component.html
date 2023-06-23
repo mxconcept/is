@@ -1,0 +1,33 @@
+<div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Назва продукту</th>
+          <th>Кількість</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products | keyvalue">
+          <td>{{ product.key }}</td>
+          <td>{{ product.value }}</td>
+          <td><button class="btn btn-danger" (click)="deleteProduct(product.key)">Видалити</button></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="mt-5">
+      <h4>Додати новий продукт</h4>
+      <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+        <div class="form-group">
+          <label for="name">Назва продукту</label>
+          <input type="text" id="name" formControlName="name" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="num">Кількість</label>
+          <input type="number" id="num" formControlName="num" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Додати продукт</button>
+      </form>
+    </div>
+  </div>

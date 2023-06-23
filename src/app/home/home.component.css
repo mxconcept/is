@@ -1,0 +1,89 @@
+
+h1{
+    font-size: 22px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(59, 67, 222);
+    text-align: center;  
+}
+
+div{
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(56, 58, 96);
+    text-align: center;
+}
+
+.header{ 
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: rgb(81, 42, 255);
+
+    border-style: dotted;
+    border-width: 2px;
+    border-color: rgb(143, 212, 255);
+    
+}
+.header > div {
+    width: 100%;
+    margin: 5px;
+    background-color: #fffcfc;
+
+    height: 100px;
+
+    text-align: center;
+}
+.menu{
+    
+    display: flex;
+    flex-flow: row;
+    background-color: rgb(81, 42, 255);
+
+}
+.sidebar{
+    width: 50%;  
+}
+.sidebar > div {
+
+    margin: 5px;
+    background-color: #fffcfc;
+
+    height: 600px;
+}
+.main{
+    width: 400px;  
+}
+
+.main > div {
+    margin: 5px;
+    background-color: #fffcfc;
+
+    height: 100%;
+}
+
+.footer{ 
+    border-style: dotted;
+    border-width: 2px;
+    border-color: rgba(255, 232, 24, 0.986);
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: rgb(164, 144, 255);
+}
+
+.footer > div {
+    width: 100%;
+    margin: 5px;
+    background-color: #fffcfc;
+
+    height: 200px;
+}
+
+
+.container__menu-button{
+    cursor: pointer; 
+    font-size: 60px;
+  
+    height: 600px;
+ }
+ .container__menu-button p:hover{
+     color:#00ec47
+ }

@@ -1,0 +1,50 @@
+<div class="container">
+    <h1>Оформити замовлення</h1>
+  
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+  
+      <div class="form-group">
+        <label for="productName">Продукт</label>
+        <select id="productName" formControlName="productName" class="form-control">
+            <option *ngFor="let product of productNames" [value]="product">{{ product }}</option>
+          </select>
+          
+      </div>
+  
+      <div class="form-group">
+        <label for="quantity">Кількість</label>
+        <input type="number" id="quantity" formControlName="quantity" class="form-control">
+        <div *ngIf="orderForm.get('quantity')?.invalid && (orderForm.get('quantity')?.touched || orderForm.get('quantity')?.dirty)" class="text-danger">
+          <div *ngIf="orderForm.get('quantity')?.hasError('required')">Quantity is required.</div>
+          <div *ngIf="orderForm.get('quantity')?.hasError('min')">Quantity must be at least 1.</div>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Додати у кошик</button>
+    </form>
+  
+    <hr />
+  
+    <h2>Кошик</h2>
+  
+    <div *ngFor="let item of shoppingCart; index as i">
+      <div class="row">
+        <div class="col">
+          {{ item.product }} ({{ item.quantity }}): {{ calculatePrice(item.product, item.quantity) }}
+        </div>
+        <div class="col">
+          <button (click)="removeFromCart(i)" class="btn btn-danger">Видалити</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col">
+        <h3>Усього: {{ calculateTotalPrice() }}</h3>
+      </div>
+    </div>
+  
+    <button class="btn btn-success">Перейти до оплати</button>
+    <hr />
+  </div>
+  
